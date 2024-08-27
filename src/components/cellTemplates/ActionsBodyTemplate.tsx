@@ -1,17 +1,18 @@
 import { t } from "i18next";
 import { useContext, useState } from "react";
 import { MenuItem } from "primereact/menuitem";
-import ListViewActionBtn from "../ListViewActionBtn";
-import { CountryContext } from "../../../contexts/country/CountryContext";
 import { useNavigate } from "react-router-dom";
-import { CountryProps, ICountry, ICountryCardProps, IFieldBodyTemplate } from "../../../interfaces/interfaces";
-import CountryModalButton from "../../country/CountryModalButton";
+import { CountryContext } from "../../contexts/country/CountryContext";
+import { IFieldBodyTemplate } from "../../interfaces/interfaces";
+import CountryModalButton from "../country/CountryModalButton";
+import ListViewActionBtn from "../countryList/ListViewActionBtn";
 
-
+//@ts-ignore
 export default function ActionsBodyTemplate( {country, viewType} : IFieldBodyTemplate) {
   
   const [modalOpen, setModalOpen] = useState(false);
 
+  //@ts-ignore
   const { countries, persistBrowsedCountry } = useContext(CountryContext);
   const navigate = useNavigate();
 

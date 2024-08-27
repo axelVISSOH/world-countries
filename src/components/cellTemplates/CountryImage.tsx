@@ -1,19 +1,18 @@
-import { t } from "i18next";
 
 import { Image } from "primereact/image";
 import { Button } from "primereact/button";
 import { OverlayPanel } from "primereact/overlaypanel";
 import { useTranslation } from "react-i18next";
 import { useContext, useRef } from "react";
-import { CountryContext } from "../../../contexts/country/CountryContext";
-import { ICountryImageInterfaceProps } from "../../../interfaces/interfaces";
 
 import noFlag from "/images/noFlag.png";
+import { CountryContext } from "../../contexts/country/CountryContext";
+import { ICountryImageProps } from "../../interfaces/interfaces";
 
-export default function CountryImage({src, alt, shape = "circle",}: ICountryImageInterfaceProps) {
+export default function CountryImage({src, alt, shape = "circle",}: ICountryImageProps) {
   const { t } = useTranslation();
 
-  const { countries, browsedCountry } = useContext(CountryContext);
+  useContext(CountryContext);
   const flagsDescriptionOverlayPanelRef = useRef<OverlayPanel>(null);
 
   return (

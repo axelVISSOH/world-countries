@@ -15,8 +15,11 @@ export default function CountryCard ({country}: ICountryCardProps) {
     
     const renderField = (icon: string, color: string, label: string, value: any, showDivider: boolean = false) => (
         <div className='m-6 mb-10'>
-            <div className='flex items-center'>                
-                <p><i className={`pi ${icon} mr-4`} style={{ color, fontSize: '1.5rem' }}></i><strong> {label } </strong> &nbsp;&nbsp;</p>
+            <div className='flex items-center'>
+                <div className="flex">
+                    <i className={`pi ${icon} mr-4`} style={{ color, fontSize: '1.5rem' }} />
+                    <p><strong> {label } </strong> &nbsp;&nbsp;</p>
+                </div>
                 { value || 'N/A'}
             </div>
             {showDivider && <Divider />}

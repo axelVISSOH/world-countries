@@ -4,12 +4,12 @@ import { useTranslation } from "react-i18next";
 import { OverlayPanel } from "primereact/overlaypanel";
 
 import { Image } from "primereact/image";
-import { CountryContext } from "../../../contexts/country/CountryContext";
-import { ICountryImageInterfaceProps } from "../../../interfaces/interfaces";
+import { ICountryImageProps } from "../../../interfaces/interfaces";
 
 import noFlag from "/images/noFlag.png";
+import { CountryContext } from "../../../contexts/country/CountryContext";
 
-export default function CountryImage({src, alt, shape = "circle",}: ICountryImageInterfaceProps) {
+export default function CountryImage({src, alt, shape = "circle",}: ICountryImageProps) {
   const { t } = useTranslation();
 
   useContext(CountryContext);

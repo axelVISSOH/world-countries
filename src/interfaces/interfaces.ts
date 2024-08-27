@@ -180,7 +180,7 @@ export interface ICountryCardProps {
   country: ICountry;
 };
 
-export interface ICountryImageInterfaceProps {
+export interface ICountryImageProps {
   src?: string;
   alt?: string;
   shape?: "circle" | "square";
