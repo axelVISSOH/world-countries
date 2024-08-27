@@ -1,12 +1,12 @@
 import { ICountryCardProps } from "../../interfaces/interfaces";
-import ActionsBodyTemplate from "../cellTemplates/ActionsBodyTemplate";
-import CapitalBodyTemplate from "../cellTemplates/CapitalBodyTemplate";
-import ContinentRegionBodyTemplate from "../cellTemplates/ContinentRegionBodyTemplate";
-import CountryImage from "../cellTemplates/CountryImage";
-import CurrenciesBodyTemplate from "../cellTemplates/CurrenciesBodyTemplate";
-import LanguagesBodyTemplate from "../cellTemplates/LanguagesBodyTemplate";
-import NamesBodyTemplate from "../cellTemplates/NamesBodyTemplate";
-import PopulationBodyTemplate from "../cellTemplates/PopulationBodyTemplate";
+import ActionsBodyTemplate from "../countryList/cellTemplates/ActionsBodyTemplate";
+import CapitalBodyTemplate from "../countryList/cellTemplates/CapitalBodyTemplate";
+import ContinentRegionBodyTemplate from "../countryList/cellTemplates/ContinentRegionBodyTemplate";
+import CountryImage from "../countryList/cellTemplates/CountryImage";
+import CurrenciesBodyTemplate from "../countryList/cellTemplates/CurrenciesBodyTemplate";
+import LanguagesBodyTemplate from "../countryList/cellTemplates/LanguagesBodyTemplate";
+import NamesBodyTemplate from "../countryList/cellTemplates/NamesBodyTemplate";
+import PopulationBodyTemplate from "../countryList/cellTemplates/PopulationBodyTemplate";
 
 export const CountryGridItem = ({country}: ICountryCardProps) => {
   return (

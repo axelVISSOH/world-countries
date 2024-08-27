@@ -1,4 +1,4 @@
-import { useContext, useEffect, useMemo, useRef, useState } from "react";
+import { useContext, useMemo, useRef, useState } from "react";
 
 import { DataView } from "primereact/dataview";
 
@@ -42,8 +42,6 @@ export default function CountryDataView() {
   
   const [filteredCountries, setFilteredCountries] = useState(countries);
   const [appliedFiltersCountries, setAppliedFiltersCountries] = useState([filteredCountries]);
-
-  let filterRegistry: IFiltersRegister[];
 
   const [globalFilterValue, setGlobalFilterValue] = useState<string | null>(null);
   const [selectedRegionsFilter, setSelectedRegionsFilter] = useState<string[]>([]);

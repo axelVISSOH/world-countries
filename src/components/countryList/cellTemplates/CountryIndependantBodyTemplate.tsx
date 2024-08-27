@@ -6,6 +6,7 @@ import { IFieldBodyTemplate } from "../../../interfaces/interfaces";
 
 export default function CountryIndependantBodyTemplate({
   country,
+  //@ts-ignore
   viewType = "table",
 }: IFieldBodyTemplate) {
   return (
