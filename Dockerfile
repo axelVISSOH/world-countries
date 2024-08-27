@@ -9,6 +9,8 @@ RUN npm install
 COPY . .
 
 RUN npm run build
+RUN ls -l /app
+RUN ls -l /app/build
 
 #configure nginx for the build app
 
