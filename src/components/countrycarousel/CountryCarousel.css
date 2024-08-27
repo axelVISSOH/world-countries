@@ -1,0 +1,9 @@
+.carousel:before,
+.carousel:after{
+    position: absolute;
+    top: 0;
+    width: 100px;
+    height: 100%;
+    content: " ";
+    z-index: 2;
+}

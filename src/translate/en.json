@@ -1,0 +1,126 @@
+{
+    "appTitle": "WorldCountries",
+    "greeting": "Welcome to {{appTitle}} 🌍 ...",
+    "error": {
+      "notFound": "Page not found",
+      "server": "Ooopss... Our bad. Something went wrong in the server"
+    },
+
+    "lang.selector.placeholder": "Select a language",
+    "lang.en": "English",
+    "lang.fr": "French",
+
+    "theme.switcher.light": "Light mode",
+    "theme.switcher.dark": "Dark mode",
+    
+    "navbar.searchCountry.input.placeholder": "Search a country ...",
+    "navbar.link.home": "Home",
+    "navbar.link.list": "List",
+    "navbar.link.api": "API",
+
+    "homewelcome.span": "Welcome to {{appTitle}}",
+
+    "tableView.noData": "No coresponding country",
+    "tableView.header.globalFilter": "Search everywhere",
+    "tableView.header.names": "Names",
+    "tableView.header.flagsInfo": "Flag",
+    "tableView.header.capital": "Capital",
+    "tableView.header.continent": "Continent & Regions",
+    "listView.header.continent": "Continent",
+    "listView.header.region": "Region",
+    "listView.header.subregion": "SubRegion",
+    "tableView.header.languages": "Language(s)",
+    "tableView.header.currencies": "Currency(ies)",
+    "tableView.header.population": "Population",
+
+    "tableView.names.common": "Common :",
+    "tableView.names.official": "Official :",
+    "tableView.names.nativeNames": "Native names",
+    
+    "tableView.flagsInfo.description": "Description",
+
+    "tableView.continent": "Continent :",
+    "tableView.region": "Region :",
+    "tableView.subregion": "Subregion :",
+    
+    "tableView.filter.name.placeholder": "Search by name",
+    "tableView.filter.capital.placeholder": "Filter by capital",
+    "tableView.filter.continent.placeholder": "Filter by continent",
+    "tableView.filter.languages.placeholder": "Filter by language(s)",
+    "tableView.filter.currencies.placeholder": "Filter by Currency(ies)",
+    "tableView.filter.population.placeholder": "Filter by population",
+
+    "tableView.actions.moreInfo": "More info",
+
+    "countryView.ImgPanel.flag": "Flag",
+    "countryView.ImgPanel.coat": "Coat of Arms",
+    "countryView.ImgPanel.map": "Maps view",
+
+    "countryView.infoPanel.isUn": "This country is member of the United Nations",
+    "countryView.infoPanel.isIndependant": "This country is independant",
+    
+    "countryView.infoPanel.tz": "Timezone",
+    
+    "countryView.infoPanel.demomym": "Demomym",
+    "countryView.infoPanel.demomym.f": "Feminine : ",
+    "countryView.infoPanel.demomym.m": "Male : ",
+    
+    "countryView.infoPanel.startOfWeek": "Start Of Week",
+    
+    "countryView.infoPanel.carInfo.left": "Cars drive on the left",
+    "countryView.infoPanel.carInfo.right": "Cars drive on the right",
+
+    "countryInfo": {
+      "btn": "See all data",
+      "title": "Country Information",
+      "officialName": "Official Name : ",
+      "capital": "Capital : ",
+      "population": "Population : ",
+      "continent": "Continent : ",
+      "region": "Region : ",
+      "subregion": "Subregion : ",
+      "languages": "Languages : ",
+      "timezones": "Timezones : ",
+      "flag_coatOfArms": "Flag & Coat of Arms : ",
+      "flag": "Flag : ",
+      "coaatOfArms": "Coat of Arms",
+      "flagAlt": "Country Flag : ",
+      "independence": "Independence : ",
+      "landlocked": "Landlocked : ",
+      "unMember": "UN Member : ",
+      "borders": "Borders : ",
+      "currencies": "Currencies : ",
+      "codes": "Codes : ",
+      "cca2": "CCA2 : ",
+      "ccn3": "CCA3 : ",
+      "cca3": "CCN3 : ",
+      "cioc": "CIOC : ",
+      "fifa": "FIFA : ",
+      "indic": "IDD : ",
+      "gini": "GINI : ",
+      "callingCode": "Calling Code : ",
+      "demonyms": "Demonyms : ",
+      "demonymMale": "Male : ",
+      "demonymFemale": "Female : ",
+      "mapLinks": "Map Links : ",
+      "googleMaps": "Google Maps",
+      "openStreetMap": "OpenStreetMap",
+      "startOfWeek": "Start of the Week : ",
+      "carInfo": "Car Information : ",
+      "signs": "Signs : ",
+      "side": "Side",
+      "yes": "Yes",
+      "no": "No",
+      "na": "N/A"
+    },
+
+    "footer.top.breadcrumb.home": "Home",
+    "footer.top.lang": "Language",  
+    "footer.info": "Data based on free API",  
+    "footer.bottom.copyright": "{{appTitle}} by @vama. All Rights Reserved.",
+    "footer.bottom.appLink.about": "About",
+    "footer.bottom.appLink.privacy": "Privacy",
+
+    "error.page.404.text": "Page {{pageName}} Not Found 😶",
+    "error.page.navigateToWelcome.text": "Navigate to Main page"
+}

@@ -1,0 +1,127 @@
+{
+    "appTitle": "Pays du Monde",
+    "greeting": "Bienvenue sur {{appTitle}} 🌍 ...",
+    "error": {
+      "notFound": "Impossible de trouver la page souhaitée",
+      "server": "Ooopss... Toutes nos excuses. Une erreure server est survenue"
+    },
+
+    "lang.selector.placeholder": "Choississez une langue",
+    "lang.en": "Anglais",
+    "lang.fr": "Français",
+
+    "theme.switcher.light": "Mode clair",
+    "theme.switcher.dark": "Mode sombre",
+
+    "navbar.searchCountry.input.placeholder": "Chercher un pays ...",
+    "navbar.link.home": "Accueil",
+    "navbar.link.list": "List",
+    "navbar.link.api": "API",
+
+    "homewelcome.span": "Bienvenue sur {{appTitle}}",
+
+    "tableView.noData": "Aucun pays correspondant",
+    "tableView.header.globalFilter": "Recherche global",
+    "tableView.header.names": "Noms",
+    "tableView.header.flagsInfo": "Drapeau",
+    "tableView.header.capital": "Capitale",
+    "tableView.header.continent": "Continent & Régions",
+    "listView.header.continent": "Continent",
+    "listView.header.region": "Region",
+    "listView.header.subregion": "Sous Région",
+    "tableView.header.languages": "Langage(s)",
+    "tableView.header.currencies": "Devise(s)",
+    "tableView.header.population": "Population",
+
+    "tableView.names.common": "Commun :",
+    "tableView.names.official": "Officiel :",
+    "tableView.names.nativeNames": "Noms natif :",
+    
+    "tableView.flagsInfo.description": "Description",
+    
+    "tableView.continent": "Continent :",
+    "tableView.region": "Région :",
+    "tableView.subregion": "Sous région :",
+    
+    "tableView.filter.name.placeholder": "Recherche par nom",
+    "tableView.filter.capital.placeholder": "Filtrer par capitale",
+    "tableView.filter.continent.placeholder": "Filtrer par continent",
+    "tableView.filter.languages.placeholder": "Filtrer par langage(s)",
+    "tableView.filter.currencies.placeholder": "Filtrer par Monnaie(s)",
+    "tableView.filter.population.placeholder": "Filtrer par interval de population",
+
+    "tableView.actions.moreInfo": "Plus d'informations",
+
+    "countryView.ImgPanel.flag": "Drapeau",
+    "countryView.ImgPanel.coat": "Armoirie",
+    "countryView.ImgPanel.map": "Vue sur carte",
+
+    "countryView.infoPanel.isUn": "Ce pays est membre des Nations Unies",
+    "countryView.infoPanel.isIndependant": "Ce pays est indépendant",
+    
+    "countryView.infoPanel.tz": "Fuseau horaire",
+
+    "countryView.infoPanel.demomym": "Nom de peuple",
+    "countryView.infoPanel.demomym.f": "Féminin : ",
+    "countryView.infoPanel.demomym.m": "Masculin : ",
+
+    "countryView.infoPanel.startOfWeek": "Début de semaine",
+
+    "countryView.infoPanel.carInfo.left": "Les voitures roulent à gauche",
+    "countryView.infoPanel.carInfo.right": "Les voitures roulent à droite",
+
+    "countryInfo": {
+      "btn": "Voir les données",
+      "title": "Informations sur le pays",
+      "officialName": "Nom officiel : ",
+      "capital": "Capitale : ",
+      "population": "Population : ",
+      "continent": "Continent : ",
+      "region": "Région : ",
+      "subregion": "Sous-région : ",
+      "languages": "Langues : ",
+      "timezones": "Fuseaux horaires : ",
+      "flag_coatOfArms": "Drapeau & Blason : ",
+      "flag": "Drapeau : ",
+      "coatOfArms": "Blason",
+      "flagAlt": "Country Flag : ",
+      "independence": "Indépendance : ",
+      "landlocked": "Enclavé : ",
+      "unMember": "Membre de l'ONU : ",
+      "borders": "Frontières : ",
+      "currencies": "Devises : ",
+      "codes": "Codes : ",
+      "cca2": "CCA2 : ",
+      "ccn3": "CCA3 : ",
+      "cca3": "CCN3 : ",
+      "cioc": "CIOC : ",
+      "fifa": "FIFA : ",
+      "indic": "IDD : ",
+      "gini": "GINI : ",
+      "callingCode": "Indicatif : ",
+      "demonyms": "Démonymes : ",
+      "demonymMale": "Homme : ",
+      "demonymFemale": "Femme : ",
+      "mapLinks": "Position sur carte : ",
+      "googleMaps": "Google Maps",
+      "openStreetMap": "OpenStreetMap",
+      "startOfWeek": "Début de la semaine : ",
+      "carInfo": "Informations sur la voiture : ",
+      "signs": "Signes : ",
+      "side": "Côté : ",
+      "yes": "Oui",
+      "no": "Non",
+      "na": "N/A"
+    },
+    
+
+    "footer.top.breadcrumb.home": "Accueil",
+    "footer.top.lang": "Langue",
+    "footer.info": "Données basées sur une API libre", 
+    "footer.bottom.copyright": "{{appTitle}} par @vama. Tous les droits réservés à l'auteur.",
+    "footer.bottom.appLink.about": "A propos",
+    "footer.bottom.appLink.privacy": "Confidentialité",
+
+    "error.page.404.text": "Page {{pageName}} Introuvable 😶",
+    "error.page.navigateToWelcome.text": "Retourner sur la page d'accueil"
+}
