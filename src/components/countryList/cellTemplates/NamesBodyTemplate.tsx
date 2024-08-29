@@ -35,7 +35,7 @@ export default function NamesBodyTemplate({
             'icon':"pi pi-language",
             'rounded':true,
             'className':"ml-2",
-            'tooltip':t("tableView.names.nativeNames")
+            'tooltip':t("tableView.names.nativeNames").replace(':', '')
           }}
           overlayContent = {
             country.names?.nativeNames?.map(

@@ -70,6 +70,9 @@
     "countryView.infoPanel.carInfo.left": "Les voitures roulent à gauche",
     "countryView.infoPanel.carInfo.right": "Les voitures roulent à droite",
 
+    "countryView.sort.name": "Trier par nom",
+    "countryView.sort.population": "Trier par Population",
+
     "countryInfo": {
       "btn": "Voir les données",
       "title": "Informations sur le pays",

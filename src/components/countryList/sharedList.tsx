@@ -4,7 +4,7 @@ import { Button } from "primereact/button";
 import { InputText } from "primereact/inputtext";
 
 import { ThemeContext } from "../../contexts/theme/ThemeContext";
-import { IRenderHeaderProps, ISearchFieldProps } from "../../interfaces/interfaces";
+import { IButtonOverlayPanel, IRenderHeaderProps, ISearchFieldProps } from "../../interfaces/interfaces";
 import { OverlayPanel } from "primereact/overlaypanel";
 
 
@@ -26,6 +26,7 @@ export const RenderHeader: React.FC<IRenderHeaderProps> = ({clearFilter, headerF
   const searchInput = () => {    
       return (
           <InputText type="text"
+                     keyfilter={"alpha"}
                      className="w-11/12 h-10 rounded-md"
                      value={globalFilterValue || ""}
                      onChange={onGlobalFilterChange}
@@ -55,16 +56,10 @@ export const RenderHeader: React.FC<IRenderHeaderProps> = ({clearFilter, headerF
   );
 };
 
-export interface IButtonOverlayPanel{
-  btnOptions: React.ComponentProps<typeof Button>
-  overlayContent: ReactNode,
-  overlayStyle?: CSSProperties
-  // toggleOverlay: () => void | null toggleOverlay = ()=>{}
-}
+export function ButtonOverlayPanel ({btnOptions, overlayContent, overlayStyle, overlayRef }: IButtonOverlayPanel) {
 
-export function ButtonOverlayPanel ({btnOptions, overlayContent, overlayStyle }: IButtonOverlayPanel) {
-
-  const overlayPanelRef = useRef<OverlayPanel>(null);
+  const localOverlayPanelRef = useRef<OverlayPanel>(null);
+  const overlayPanelRef = overlayRef || localOverlayPanelRef;
 
   return(
     <div >

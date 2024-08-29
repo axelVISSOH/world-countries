@@ -46,7 +46,7 @@ export default function Welcome() {
     <div className={`p-10 h-screen flex flex-col justify-center items-center ${theme.colors.text}`}
       style={{ backgroundColor: theme.colors.background }} >
 
-      <ReactTyped className="inline-block whitespace-nowrap text-2xl sm:text-xl xs:text-l"
+      <ReactTyped className="inline-block whitespace-nowrap text-9xl sm:text-xl xs:text-l font-serif font-bold"
                   strings={[t("greeting", { appTitle: t("appTitle") })]}
                   typeSpeed={40}
                   backSpeed={50}

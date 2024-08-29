@@ -47,6 +47,12 @@ export default function CountryDataView() {
   const [selectedContinentsFilter, setSelectedContinentsFilter] = useState<string[]>([]);
   const [selectedSubRegionsFilter, setSelectedSubRegionsFilter] = useState<string[]>([]);
 
+  const [sortNameOrder, setSortNameOrder] = useState(true);
+  const tooltipSortName = t(`countryView.sort.name.${sortNameOrder ? 'up' : 'down'}`);
+
+  const [sortPopulationOrder, setSortPopulationOrder] = useState(true);
+  const tooltipSortPopulation = t(`countryView.sort.population.${sortPopulationOrder ? 'up' : 'down'}`);
+
   const initFilters = () => {
     setGlobalFilterValue(null);
     setFilteredCountries(countries);
@@ -214,72 +220,127 @@ export default function CountryDataView() {
         <ButtonOverlayPanel
           btnOptions={{'label':t("tableView.filter.continent.placeholder").replace(':', '')}}
           overlayContent=
-            {
-              <div className="">
-                <div className="filters flex justify-around">
-                  <div className="justify-items-center mr-12">
-                    <h2>CONTINENT</h2>
-                    {continents.map((continent, index) => {
-                      return optionTemplate(
-                        "continent",
-                        continent,
-                        index,
-                        setSelectedContinentsFilter,
-                        selectedContinentsFilter
-                      );
-                    })}
-                  </div>
-
-                  <div className="justify-items-center  mr-12">
-                    <h2>REGIONS</h2>
-                    {regions.map((region, index) => {
-                      return optionTemplate(
-                        "region",
-                        region,
-                        index,
-                        setSelectedRegionsFilter,
-                        selectedRegionsFilter
-                      );
-                    })}
-                  </div>
-
-                  <div className="justify-items-center  mr-12">
-                    <h2>SUB-REGIONS</h2>
-                    <div className="grid grid-rows-6 grid-flow-col gap-4">
-                      {subregions.map((subregion, index) => {
-                        return optionTemplate(
-                          "subregion",
-                          subregion,
-                          index,
-                          setSelectedSubRegionsFilter,
-                          selectedSubRegionsFilter
-                        );
-                      })}
-                    </div>
-                  </div>
+          {
+            <div className="">
+              <div className="filters flex justify-around">
+                <div className="justify-items-center mr-12">
+                  <h2>CONTINENT</h2>
+                  {continents.map((continent, index) => {
+                    return optionTemplate(
+                      "continent",
+                      continent,
+                      index,
+                      setSelectedContinentsFilter,
+                      selectedContinentsFilter
+                    );
+                  })}
                 </div>
-                <div className="footer flex justify-between">
-                  <Button
-                    type="button"
-                    icon="pi pi-filter-slash"
-                    outlined
-                    onClick={initContinentAndRegionFilter} />
-                  <Button
-                    type="button"
-                    icon="pi pi-filter"
-                    onClick={(e) => {
-                      overlayPanelRef.current?.toggle(e);
-                    } } />
+
+                <div className="justify-items-center  mr-12">
+                  <h2>REGIONS</h2>
+                  {regions.map((region, index) => {
+                    return optionTemplate(
+                      "region",
+                      region,
+                      index,
+                      setSelectedRegionsFilter,
+                      selectedRegionsFilter
+                    );
+                  })}
+                </div>
+
+                <div className="justify-items-center  mr-12">
+                  <h2>SUB-REGIONS</h2>
+                  <div className="grid grid-rows-6 grid-flow-col gap-4">
+                    {subregions.map((subregion, index) => {
+                      return optionTemplate(
+                        "subregion",
+                        subregion,
+                        index,
+                        setSelectedSubRegionsFilter,
+                        selectedSubRegionsFilter
+                      );
+                    })}
+                  </div>
                 </div>
               </div>
-            }
+              <div className="footer flex justify-between">
+                <Button
+                  type="button"
+                  icon="pi pi-filter-slash"
+                  outlined
+                  onClick={() => { initContinentAndRegionFilter() } } />
+                <Button
+                  type="button"
+                  icon="pi pi-filter"
+                  onClick={(e) => { overlayPanelRef.current?.toggle(e); } } />
+              </div>
+            </div>
+          }
+          overlayRef={overlayPanelRef}
         />
       </>
     );
   }; 
   
+  const headerFilters = () =>{
+
+    const sortName = () => {
+      const sortedCountries = [...filteredCountries].sort((c1, c2) => {
+        const nameA = c1.names?.common ?? "";
+        const nameB = c2.names?.common ?? "";
+    
+        if (sortNameOrder) { return nameA.localeCompare(nameB); }
+        else { return nameB.localeCompare(nameA); }
+      });
+
+      setFilteredCountries(sortedCountries);
+      setSortNameOrder(!sortNameOrder);
+    }
+
+    const sortPopulation = () => {
+      const sortedCountries = [...filteredCountries].sort((c1, c2) => {
+        const popA = c1.population ?? Number.MAX_VALUE;
+        const popB = c2.population ?? Number.MAX_VALUE;
+
+        if (sortPopulationOrder) { return popA - popB; } 
+        else { return popB - popA; }
+      });
+
+      setFilteredCountries(sortedCountries);
+      setSortPopulationOrder(!sortPopulationOrder);
+    }
+
+    return(
+      <>
+        { continentRegionFilterTemplate() }
+        <div className="flex gap-y-4">
+          <div className="sortname">
+            <Button className="ml-2"
+              type="button" 
+              icon={sortNameOrder?'pi-sort-alpha-down':'pi-sort-alpha-up'}
+              rounded 
+              onClick={sortName}
+              tooltipOptions={{position:"bottom"}}
+              tooltip={t('countryView.sort.name')}
+            />
+          </div>
+          <div className="sortPopulation">
+            <Button className="ml-2"
+              type="button" 
+              icon={sortPopulationOrder ? 'pi-sort-numeric-down':'pi-sort-numeric-up'}
+              rounded 
+              onClick={sortPopulation}
+              tooltip={t('countryView.sort.population')}
+            />
+          </div>
+        </div>
+      </>
+    )
+  }
+
   const renderDatalistView = () => {
-    const header = RenderHeader({clearFilter, headerFilters: continentRegionFilterTemplate(), globalFilterValue, onGlobalFilterChange});
+    const header = RenderHeader({clearFilter, headerFilters: headerFilters(), globalFilterValue, onGlobalFilterChange});
     
     const itemTemplate = (country: ICountry, _layout: "grid" | "list") => {
       if (!country) { return; }
@@ -296,19 +357,19 @@ export default function CountryDataView() {
 
     return (
       <div className="p-10 rounded-lg">
-        <DataView className=""
-                  key={gridCount}
-                  value={filteredCountries}
-                  itemTemplate={itemTemplate}
-                  layout="grid"
-                  header={header}
-                  paginator={paginator.paginator}
-                  rows={paginator.rows}
-                  rowsPerPageOptions={paginator.rowsPerPageOptions}
-                  paginatorTemplate={paginator.paginatorTemplate}
-                  currentPageReportTemplate={paginator.currentPageReportTemplate}
-                  paginatorLeft={paginator.paginatorLeft()}
-                  paginatorRight={paginator.paginatorRight()}/>
+        <DataView 
+          className=""
+          key={gridCount}
+          value={filteredCountries}
+          itemTemplate={itemTemplate}
+          layout="grid"
+          header={header}
+          paginator={paginator.paginator}
+          rows={paginator.rows}
+          rowsPerPageOptions={paginator.rowsPerPageOptions}
+          paginatorTemplate={paginator.paginatorTemplate}
+          currentPageReportTemplate={paginator.currentPageReportTemplate}
+        />
       </div>
     );
   };

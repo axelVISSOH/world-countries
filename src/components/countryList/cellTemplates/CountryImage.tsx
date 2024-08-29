@@ -16,7 +16,7 @@ export default function CountryImage({src, alt, shape = "circle",}: ICountryImag
   return (
     <div className="flex flex-col justify-center items-center">
       <Image
-        className={`${ (shape === "square") && 'border border-slate-800'}`}
+        // className={`${ (shape === "square") && 'border border-slate-800'}`}
         src={src || noFlag}
         zoomSrc={src || noFlag}
         alt={alt || t('countryInfo.notAvailable')}

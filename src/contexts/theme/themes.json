@@ -1,89 +1,9 @@
 {
-    "data": {
-      "dark2": {
-        "id": "lara-dark-cyan",
-        "name": "dark",
-        "href": "/themes/lara-dark-cyan/theme.css",
-        "colors": {
-          "body": "#FFFFFF",
-          "text": "text-white",
-          "background": "rgb(29, 29, 34)",
-          "navbarFooterBackground": "rgb(30, 39, 46)",
-          "iconBase": "border-slate-600",
-          "searchCountry": {
-            "background": "rgb(72, 84, 96)"
-          },
-          "button": {
-            "text": "#FFFFFF",
-            "background": "#000000"
-          }
-        },
-        "font": "Tinos"
-      },
-      "light2": {
-        "id": "lara-light-cyan",
-        "name": "light",
-        "href": "/themes/lara-light-cyan/theme.css",
-        "colors": {
-          "body": "#FFFFFF",
-          "text": "text-dark",
-          "background": "rgb(206, 214, 224)",
-          "navbarFooterBackground": "rgb(223, 228, 234)",
-          "iconBase": "border-slate-200",
-          "searchCountry": {
-            "background": "rgb(241, 242, 246)"
-          },
-          "button": {
-            "text": "#FFFFFF",
-            "background": "#000000"
-          }
-        },
-        "font": "Tinos"
-      },
-      "dark3": {
-        "id": "soho-dark",
-        "name": "dark",
-        "href": "/themes/soho-dark/theme.css",
-        "colors": {
-          "body": "#FFFFFF",
-          "text": "text-white",
-          "background": "rgb(29, 29, 34)",
-          "navbarFooterBackground": "rgb(30, 39, 46)",
-          "iconBase": "border-slate-600",
-          "searchCountry": {
-            "background": "rgb(72, 84, 96)"
-          },
-          "button": {
-            "text": "#FFFFFF",
-            "background": "#000000"
-          }
-        },
-        "font": "Tinos"
-      },
-      "light3": {
-        "id": "soho-light",
-        "name": "light",
-        "href": "/themes/soho-light/theme.css",
-        "colors": {
-          "body": "#FFFFFF",
-          "text": "text-dark",
-          "background": "rgb(206, 214, 224)",
-          "navbarFooterBackground": "rgb(223, 228, 234)",
-          "iconBase": "border-slate-200",
-          "searchCountry": {
-            "background": "rgb(241, 242, 246)"
-          },
-          "button": {
-            "text": "#FFFFFF",
-            "background": "#000000"
-          }
-        },
-        "font": "Tinos"
-      },
+    "data": {      
       "dark": {
-        "id": "mdc-dark-indigo",
+        "id": "viva-dark",
         "name": "dark",
-        "href": "/themes/mdc-dark-indigo/theme.css",
+        "href": "/themes/viva-dark/theme.css",
         "colors": {
           "body": "#FFFFFF",
           "text": "text-white",
@@ -101,9 +21,9 @@
         "font": "Tinos"
       },
       "light": {
-        "id": "mdc-light-indigo",
+        "id": "viva-light",
         "name": "light",
-        "href": "/themes/mdc-light-indigo/theme.css",
+        "href": "/themes/viva-light/theme.css",
         "colors": {
           "body": "#FFFFFF",
           "text": "text-dark",

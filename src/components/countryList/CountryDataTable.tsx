@@ -513,6 +513,7 @@ export default function CountryDataTable() {
           tableClassName=""
           className={`theme-${theme} m-10`}
           value={countries}
+          alt="ALT TEST"
           showGridlines
           resizableColumns
           stripedRows
@@ -531,10 +532,8 @@ export default function CountryDataTable() {
           rows={paginator.rows}
           rowsPerPageOptions={paginator.rowsPerPageOptions}
           paginatorTemplate={paginator.paginatorTemplate}
-          currentPageReportTemplate={paginator.currentPageReportTemplate}
-          paginatorLeft={paginator.paginatorLeft()}
-          paginatorRight={paginator.paginatorRight()}
-        >
+          currentPageReportTemplate={paginator.currentPageReportTemplate} >
+            
           <Column
             field="names.common"
             header={t("tableView.header.names")}

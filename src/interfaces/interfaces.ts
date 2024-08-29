@@ -1,4 +1,6 @@
-import { ReactNode } from "react";
+import { Button } from "primereact/button";
+import { OverlayPanel } from "primereact/overlaypanel";
+import { CSSProperties, ReactNode } from "react";
 
 export interface ICountry {
   // [key: string]: any;
@@ -184,6 +186,13 @@ export interface ICountryImageProps {
   src?: string;
   alt?: string;
   shape?: "circle" | "square";
+}
+
+export interface IButtonOverlayPanel{
+  btnOptions: React.ComponentProps<typeof Button>
+  overlayContent: ReactNode,
+  overlayStyle?: CSSProperties  
+  overlayRef?: React.RefObject<OverlayPanel>;
 }
 
 export type filtertype = "continent" | "region" | "subregion" | undefined | string;
