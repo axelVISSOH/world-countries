@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import { ThemeContext } from "../../contexts/theme/ThemeContext";
 import { ICountryCardProps } from "../../interfaces/interfaces";
 import CountryImage from "../countryList/cellTemplates/CountryImage";
-import { displayTz } from "../countryList/cellTemplates/TimeZonesBodyTemplate";
+import { displayTzs } from "../countryList/cellTemplates/TimeZonesBodyTemplate";
 
 
 export default function CountryCard ({country}: ICountryCardProps) {
@@ -50,7 +50,7 @@ export default function CountryCard ({country}: ICountryCardProps) {
                     <Divider />
                     
                     {renderField("pi-comments", "brown", t('countryInfo.languages'), country.languages?.map((lang: any) => lang.name).join(", "), true)}
-                    {renderField("pi-globe", "navy", t('countryInfo.timezones'), displayTz(country, "detail"), true)}
+                    {renderField("pi-globe", "navy", t('countryInfo.timezones'), displayTzs(country, "detail"), true)}
                     
                     {renderField("pi-flag", "gold", t('countryInfo.flag_coatOfArms'), (
                         <div className='flex justify-center gap-x-4'>

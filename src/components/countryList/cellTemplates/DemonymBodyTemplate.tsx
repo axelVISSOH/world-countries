@@ -1,28 +1,24 @@
 import { t } from "i18next";
-import { useRef } from "react";
 
-import { Button } from "primereact/button";
-import { OverlayPanel } from "primereact/overlaypanel";
 import { IFieldBodyTemplate, Demonym } from "../../../interfaces/interfaces";
+import { ButtonOverlayPanel } from "../sharedList";
 
 //@ts-ignore
 export default function DemomymBodyTemplate({ country, viewType = "table",}: IFieldBodyTemplate) {
-  const demomymOverlayPanelRef = useRef<OverlayPanel>(null);
 
   return (
     <div className="flex gap-x-10">
       {
         <div>
-          <Button
-            type="button"
-            icon="pi pi-users"
-            rounded
-            className="ml-2"
-            tooltip={t("countryView.infoPanel.demomym")}
-            onClick={(e) => demomymOverlayPanelRef.current?.toggle(e)}
-          />
-          <OverlayPanel ref={demomymOverlayPanelRef}>
-            {country.demonyms?.map((demomym: Demonym, index: number) => {
+          <ButtonOverlayPanel 
+            btnOptions={{
+              'type':"button", 
+              'icon':"pi pi-users", 
+              'rounded': true, 
+              'className':"ml-2", 
+              'tooltip':t("countryView.infoPanel.demomym")
+            }}
+            overlayContent = {country.demonyms?.map((demomym: Demonym, index: number) => {
               return (
                 <ul className="list-none" key={(country.names?.common ||  t('countryInfo.notAvailable')) + index}>
                   <strong>{demomym.lang.toUpperCase()}</strong>
@@ -38,7 +34,7 @@ export default function DemomymBodyTemplate({ country, viewType = "table",}: IFi
                 </ul>
               );
             })}
-          </OverlayPanel>
+          />
         </div>
       }
     </div>

@@ -7,11 +7,11 @@ import { useTranslation } from "react-i18next";
 import { paginatorOptions } from "./ListPaginator";
 import { Button } from "primereact/button";
 import { Checkbox, CheckboxChangeEvent } from "primereact/checkbox";
-import { OverlayPanel } from "primereact/overlaypanel";
 import { filtertype, ICountry } from "../../interfaces/interfaces";
-import { RenderHeader } from "./sharedList";
+import { ButtonOverlayPanel, RenderHeader } from "./sharedList";
 import { useScreenLayout } from "../../hooks/windowWidth";
 import { CountryGridItem } from "../country/CountryGridItem";
+import { OverlayPanel } from "primereact/overlaypanel";
 
 export interface IFiltersRegister{
   type: 'golbal' | 'continent',
@@ -35,22 +35,17 @@ export default function CountryDataView() {
 
   const { t } = useTranslation();  
   const { countries } = useContext(CountryContext);
-  const contientAndRegionOverlayPanelRef = useRef<OverlayPanel>(null);
+  const overlayPanelRef = useRef<OverlayPanel>(null);
 
   const gridCount = useScreenLayout().gridCount;
   const paginator = useMemo(() => paginatorOptions(gridCount), [gridCount]);
   
   const [filteredCountries, setFilteredCountries] = useState(countries);
-  const [appliedFiltersCountries, setAppliedFiltersCountries] = useState([filteredCountries]);
 
   const [globalFilterValue, setGlobalFilterValue] = useState<string | null>(null);
   const [selectedRegionsFilter, setSelectedRegionsFilter] = useState<string[]>([]);
   const [selectedContinentsFilter, setSelectedContinentsFilter] = useState<string[]>([]);
   const [selectedSubRegionsFilter, setSelectedSubRegionsFilter] = useState<string[]>([]);
-
-  // useEffect(()=>{
-  //   setFilteredCountries(countries);
-  // }, [countries]);
 
   const initFilters = () => {
     setGlobalFilterValue(null);
@@ -102,11 +97,10 @@ export default function CountryDataView() {
   };
 
   const onGlobalFilterChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    initContinentAndRegionFilter();
     const filterValueToApplyGlobally = e.target.value;
-
-    console.log(filterValueToApplyGlobally)
-    
-    let currentFilteredCoutries = appliedFiltersCountries[appliedFiltersCountries.length - 1].slice();    
+   
+    let currentFilteredCoutries = countries.slice();    
     
     let _filteredCoutries = filterCountriesByField(
       currentFilteredCoutries,
@@ -115,7 +109,6 @@ export default function CountryDataView() {
     );
 
     setFilteredCountries(_filteredCoutries);
-    setAppliedFiltersCountries([...appliedFiltersCountries, _filteredCoutries]);
     setGlobalFilterValue(filterValueToApplyGlobally);
   };
 
@@ -218,71 +211,69 @@ export default function CountryDataView() {
 
     return (
       <>
-        <Button
-          type="button"
-          label={t("tableView.filter.continent.placeholder")}
-          onClick={(e) => contientAndRegionOverlayPanelRef.current?.toggle(e)}/>
-        <OverlayPanel ref={contientAndRegionOverlayPanelRef}>
-          <div className="">
-            <div className="filters flex justify-around">
-              <div className="justify-items-center mr-12">
-                <h2>CONTINENT</h2>
-                {continents.map((continent, index) => {
-                  return optionTemplate(
-                    "continent",
-                    continent,
-                    index,
-                    setSelectedContinentsFilter,
-                    selectedContinentsFilter,
-                  );
-                })}
-              </div>
+        <ButtonOverlayPanel
+          btnOptions={{'label':t("tableView.filter.continent.placeholder").replace(':', '')}}
+          overlayContent=
+            {
+              <div className="">
+                <div className="filters flex justify-around">
+                  <div className="justify-items-center mr-12">
+                    <h2>CONTINENT</h2>
+                    {continents.map((continent, index) => {
+                      return optionTemplate(
+                        "continent",
+                        continent,
+                        index,
+                        setSelectedContinentsFilter,
+                        selectedContinentsFilter
+                      );
+                    })}
+                  </div>
 
-              <div className="justify-items-center  mr-12">
-                <h2>REGIONS</h2>
-                {regions.map((region, index) => {
-                  return optionTemplate(
-                    "region",
-                    region,
-                    index,
-                    setSelectedRegionsFilter,
-                    selectedRegionsFilter,
-                  );
-                })}
-              </div>
+                  <div className="justify-items-center  mr-12">
+                    <h2>REGIONS</h2>
+                    {regions.map((region, index) => {
+                      return optionTemplate(
+                        "region",
+                        region,
+                        index,
+                        setSelectedRegionsFilter,
+                        selectedRegionsFilter
+                      );
+                    })}
+                  </div>
 
-              <div className="justify-items-center  mr-12">
-                <h2>SUB-REGIONS</h2>
-                <div className="grid grid-rows-6 grid-flow-col gap-4">
-                  {subregions.map((subregion, index) => {
-                    return optionTemplate(
-                      "subregion",
-                      subregion,
-                      index,
-                      setSelectedSubRegionsFilter,
-                      selectedSubRegionsFilter,
-                    );
-                  })}
+                  <div className="justify-items-center  mr-12">
+                    <h2>SUB-REGIONS</h2>
+                    <div className="grid grid-rows-6 grid-flow-col gap-4">
+                      {subregions.map((subregion, index) => {
+                        return optionTemplate(
+                          "subregion",
+                          subregion,
+                          index,
+                          setSelectedSubRegionsFilter,
+                          selectedSubRegionsFilter
+                        );
+                      })}
+                    </div>
+                  </div>
+                </div>
+                <div className="footer flex justify-between">
+                  <Button
+                    type="button"
+                    icon="pi pi-filter-slash"
+                    outlined
+                    onClick={initContinentAndRegionFilter} />
+                  <Button
+                    type="button"
+                    icon="pi pi-filter"
+                    onClick={(e) => {
+                      overlayPanelRef.current?.toggle(e);
+                    } } />
                 </div>
               </div>
-            </div>
-            <div className="footer flex justify-between">
-              <Button
-                type="button"
-                icon="pi pi-filter-slash"
-                outlined
-                onClick={initContinentAndRegionFilter}
-              />
-              <Button
-                type="button"
-                icon="pi pi-filter"
-                onClick={(e) => {
-                  contientAndRegionOverlayPanelRef.current?.toggle(e);
-                }}
-              />
-            </div>
-          </div>
-        </OverlayPanel>
+            }
+        />
       </>
     );
   }; 

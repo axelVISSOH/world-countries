@@ -1,19 +1,17 @@
-import { useContext, useRef } from "react";
-import { Button } from "primereact/button";
+import { useContext } from "react";
 import { useTranslation } from "react-i18next";
-import { OverlayPanel } from "primereact/overlaypanel";
 
 import { Image } from "primereact/image";
 import { ICountryImageProps } from "../../../interfaces/interfaces";
 
 import noFlag from "/images/noFlag.png";
 import { CountryContext } from "../../../contexts/country/CountryContext";
+import { ButtonOverlayPanel } from "../sharedList";
 
 export default function CountryImage({src, alt, shape = "circle",}: ICountryImageProps) {
   const { t } = useTranslation();
 
   useContext(CountryContext);
-  const flagsDescriptionOverlayPanelRef = useRef<OverlayPanel>(null);
 
   return (
     <div className="flex flex-col justify-center items-center">
@@ -59,17 +57,14 @@ export default function CountryImage({src, alt, shape = "circle",}: ICountryImag
       />
       {alt && (
         <div className="mt-2">
-          <Button
-            type="button"
-            label={t("tableView.flagsInfo.description")}
-            onClick={(e) => flagsDescriptionOverlayPanelRef.current?.toggle(e)}
+          <ButtonOverlayPanel
+            btnOptions={{
+              'type': "button",
+              'label':t("tableView.flagsInfo.description").replace(':', '')
+            }}
+            overlayContent = { <div className="text-justify"> {alt} </div> }
+            overlayStyle={{ width: "350px" }}
           />
-          <OverlayPanel
-            style={{ width: "350px" }}
-            ref={flagsDescriptionOverlayPanelRef}
-          >
-            <div className="text-justify"> {alt} </div>
-          </OverlayPanel>
         </div>
       )}
     </div>

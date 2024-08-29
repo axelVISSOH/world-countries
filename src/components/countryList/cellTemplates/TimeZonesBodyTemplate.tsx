@@ -1,45 +1,60 @@
 import tzLogo from "/images/tz.png";
 
-import { useRef } from "react";
-import { Button } from "primereact/button";
 import { useTranslation } from "react-i18next";
 
-import { OverlayPanel } from "primereact/overlaypanel";
-import { ICountry, IFieldBodyTemplate } from "../../../interfaces/interfaces";
+import { ICountry, IFieldBodyTemplate, viewtype } from "../../../interfaces/interfaces";
+import { ButtonOverlayPanel } from "../sharedList";
 
-export function displayTz (country: ICountry, viewType: "table" | "list" | "detail") {
+export function displayTzs (country: ICountry, viewType: viewtype) {
   
   let tzs: string[] = Array.isArray(country.timezones)
                    ? country.timezones
                    : (typeof country.timezones === 'string' && country.timezones.split(', ')) || [];
 
   const { t } = useTranslation();
-  const tzsOverlayPanelRef = useRef<OverlayPanel>(null);
 
+  const displayTz = (tz: string, key: number=0) =>{
+    return (
+      <li key={key}>
+        <strong>{tz.toUpperCase()} </strong>
+      </li>
+    )
+  }
+  
   return(
     <>
       {
-        tzs ?
+        tzs && tzs.length>0 ?
           (
             <div className={`flex  ${viewType === "list" || viewType === "detail" ? "flex-col" : "justify-center"}  `} >
-              <Button type="button"
-                      label={t("countryInfo.timezones").replace(':', '')}
-                      onClick={(e) => tzsOverlayPanelRef.current?.toggle(e)}/>
-                <OverlayPanel ref={tzsOverlayPanelRef}>
-                  <ul className="flex flex-col">
+            {
+              tzs.length==1 ? 
+              ( 
+                <ul className="list-none"> 
+                  {displayTz(tzs[0])} 
+                </ul> 
+              ) 
+              :
+              (                  
+                <ButtonOverlayPanel 
+                  btnOptions={{'label':t("countryInfo.timezones").replace(':', '')}}
+                  overlayContent = 
+                  {
+                    <ul className="list-none">
                       {
                         tzs && 
-                        tzs.map( (tz) => (
-                          <li key={tz}>
-                            <strong> {tz?.toUpperCase()} </strong>
-                            <br />
-                          </li>
+                        tzs.map( (tz, index) => (
+                          <> 
+                            {displayTz(tz, index)} 
+                          </>
                         ) )
                       }
-                  </ul>
-                </OverlayPanel>
-            </div>
-            
+                    </ul>
+                  } 
+                />
+              )
+            }            
+          </div>
           )
           : ( <span>{t("countryView.na")}</span> )
       }
@@ -62,7 +77,7 @@ export default function TimeZonesBodyTemplate({country, viewType = "table",}: IF
           <span>{t("countryView.infoPanel.tz")}</span>
         )}
         {
-          displayTz(country, viewType)
+          displayTzs(country, viewType)
         }
       </div>
     </div>

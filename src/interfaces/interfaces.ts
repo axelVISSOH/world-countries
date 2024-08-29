@@ -187,6 +187,7 @@ export interface ICountryImageProps {
 }
 
 export type filtertype = "continent" | "region" | "subregion" | undefined | string;
+export type viewtype = "table" | "list" | "detail";
 
 export interface CountryProps {
   country: {

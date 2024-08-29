@@ -1,15 +1,11 @@
-import { useRef } from "react";
-import { Button } from "primereact/button";
 import { useTranslation } from "react-i18next";
-import { OverlayPanel } from "primereact/overlaypanel";
 
 import indic from "/images/indic1.png";
 import { ICodes, IFieldBodyTemplate } from "../../../interfaces/interfaces";
+import { ButtonOverlayPanel } from "../sharedList";
 
 export default function CodesBodyTemplate({country, viewType = "detail",}: IFieldBodyTemplate) {
   const { t } = useTranslation();
-  const codesOverlayPanelRef = useRef<OverlayPanel>(null);
-
 
   const codes = country.codes;
 
@@ -85,12 +81,13 @@ export default function CodesBodyTemplate({country, viewType = "detail",}: IFiel
         </span>
       )}
       <div className={`flex  ${viewType === "list" || viewType === "detail" ? "flex-col" : "justify-center"}  `} >
-        <Button type="button"
-                label={t("countryInfo.codes").replace(':', '')}
-                onClick={(e) => codesOverlayPanelRef.current?.toggle(e)}/>
-          <OverlayPanel ref={codesOverlayPanelRef}>
-            {(codes) && displayCodes(codes)}
-          </OverlayPanel>
+        {(viewType === "list" || viewType === "detail") && (
+          <span>{t("countryInfo.codes").replace(':','')}</span>
+        )}
+        <ButtonOverlayPanel 
+          btnOptions={{'label':t("countryInfo.codes").replace(':', '')}}
+          overlayContent = {(codes) && displayCodes(codes)}
+        />
       </div>
     </div>
   );

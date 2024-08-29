@@ -37,12 +37,12 @@ export default function Footer() {
           <div className="footer-link footer-media-link">
             <ul className="list-none">
               <li className="inline mr-2">
-                <a href="#">
+                <a href="https://github.com/axelVISSOH" target="_blank">
                   <i className="pi pi-github" style={{ color: "slateblue", fontSize: "1.5rem" }}></i>
                 </a>
               </li>
               <li className="inline mr-2 ml-2">
-                <a href="#">
+                <a href="https://www.linkedin.com/in/inaxelvissoh04/" target="_blank">
                   <i className="pi pi-linkedin" style={{ color: "blue", fontSize: "1.5rem" }}></i>
                 </a>
               </li>

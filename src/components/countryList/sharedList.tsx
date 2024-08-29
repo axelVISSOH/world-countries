@@ -1,10 +1,11 @@
 import { t } from "i18next";
-import React, { useContext } from "react";
+import React, { CSSProperties, ReactNode, useContext, useRef } from "react";
 import { Button } from "primereact/button";
 import { InputText } from "primereact/inputtext";
 
 import { ThemeContext } from "../../contexts/theme/ThemeContext";
 import { IRenderHeaderProps, ISearchFieldProps } from "../../interfaces/interfaces";
+import { OverlayPanel } from "primereact/overlaypanel";
 
 
 export const SearchField: React.FC<ISearchFieldProps> = ({inputField}: ISearchFieldProps) => { 
@@ -20,7 +21,7 @@ export const SearchField: React.FC<ISearchFieldProps> = ({inputField}: ISearchFi
   );
 };
 
-export const RenderHeader: React.FC<IRenderHeaderProps> =    ({clearFilter, headerFilters=null, globalFilterValue, onGlobalFilterChange}: IRenderHeaderProps) => {
+export const RenderHeader: React.FC<IRenderHeaderProps> = ({clearFilter, headerFilters=null, globalFilterValue, onGlobalFilterChange}: IRenderHeaderProps) => {
     
   const searchInput = () => {    
       return (
@@ -53,3 +54,28 @@ export const RenderHeader: React.FC<IRenderHeaderProps> =    ({clearFilter, head
     </div>
   );
 };
+
+export interface IButtonOverlayPanel{
+  btnOptions: React.ComponentProps<typeof Button>
+  overlayContent: ReactNode,
+  overlayStyle?: CSSProperties
+  // toggleOverlay: () => void | null toggleOverlay = ()=>{}
+}
+
+export function ButtonOverlayPanel ({btnOptions, overlayContent, overlayStyle }: IButtonOverlayPanel) {
+
+  const overlayPanelRef = useRef<OverlayPanel>(null);
+
+  return(
+    <div >
+      <Button {...btnOptions} onClick={(e) => overlayPanelRef.current?.toggle(e)}/>
+        <OverlayPanel ref={overlayPanelRef} style={overlayStyle}>
+          <ul className="flex flex-col">
+              { overlayContent }
+          </ul>
+        </OverlayPanel>
+    </div>
+  );
+
+  
+}

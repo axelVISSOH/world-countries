@@ -97,7 +97,7 @@ export default function CountryCarousel() {
   
 
   return (
-    <div className="mx-auto my-10 carousel-container">
+    <div className="mx-auto my-8 carousel-container">
       {renderCarousels()}
     </div>
   );
