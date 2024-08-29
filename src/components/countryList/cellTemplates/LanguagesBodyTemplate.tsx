@@ -12,8 +12,8 @@ export function displaylangs (country: ICountry, viewType: viewtype) {
 
   const displaylang = (lang: Languages, key: number=0) =>{
     return (
-      <li key={key}>
-        <strong>{lang.key?.toUpperCase()} </strong>
+      <li key={lang.key + key}>
+        <strong>{lang.key.toUpperCase()} </strong>
         <span>{lang.name}</span>
       </li>
     )

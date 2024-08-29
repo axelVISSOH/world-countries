@@ -1,6 +1,6 @@
 {
     "appTitle": "Pays du Monde",
-    "greeting": "Bienvenue sur {{appTitle}} 🌍 ...",
+    "greeting": "Bienvenue sur {{appTitle}} ...",
     "error": {
       "notFound": "Impossible de trouver la page souhaitée",
       "server": "Ooopss... Toutes nos excuses. Une erreure server est survenue"

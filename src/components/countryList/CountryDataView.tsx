@@ -48,10 +48,7 @@ export default function CountryDataView() {
   const [selectedSubRegionsFilter, setSelectedSubRegionsFilter] = useState<string[]>([]);
 
   const [sortNameOrder, setSortNameOrder] = useState(true);
-  const tooltipSortName = t(`countryView.sort.name.${sortNameOrder ? 'up' : 'down'}`);
-
   const [sortPopulationOrder, setSortPopulationOrder] = useState(true);
-  const tooltipSortPopulation = t(`countryView.sort.population.${sortPopulationOrder ? 'up' : 'down'}`);
 
   const initFilters = () => {
     setGlobalFilterValue(null);
@@ -312,30 +309,27 @@ export default function CountryDataView() {
     }
 
     return(
-      <>
-        { continentRegionFilterTemplate() }
-        <div className="flex gap-y-4">
-          <div className="sortname">
-            <Button className="ml-2"
-              type="button" 
-              icon={sortNameOrder?'pi-sort-alpha-down':'pi-sort-alpha-up'}
-              rounded 
-              onClick={sortName}
-              tooltipOptions={{position:"bottom"}}
-              tooltip={t('countryView.sort.name')}
-            />
-          </div>
-          <div className="sortPopulation">
-            <Button className="ml-2"
-              type="button" 
-              icon={sortPopulationOrder ? 'pi-sort-numeric-down':'pi-sort-numeric-up'}
-              rounded 
-              onClick={sortPopulation}
-              tooltip={t('countryView.sort.population')}
-            />
-          </div>
-        </div>
-      </>
+      <div className="flex justify-center">
+          { continentRegionFilterTemplate() }
+            <div className="sort flex justify-center">
+              <Button className="ml-10"
+                type="button" 
+                icon={sortNameOrder?'pi pi-sort-alpha-up':'pi pi-sort-alpha-down'}
+                rounded 
+                onClick={sortName}
+                tooltipOptions={{position:"bottom"}}
+                tooltip={t('countryView.sort.name')}
+              />
+              <Button className="mx-4"
+                type="button" 
+                icon={sortPopulationOrder ? 'pi pi-sort-numeric-up':'pi pi-sort-numeric-down'}
+                rounded 
+                onClick={sortPopulation}
+                tooltip={t('countryView.sort.population')}
+              />
+            </div>
+            
+      </div>
     )
   }
 

@@ -11,7 +11,7 @@ export default function CustomBreadCrumb() {
   const location = useLocation();
 
   const { browsedCountry } = useContext(CountryContext);
-  const locationPathnames = location.pathname.split("/");
+  const locationPathnames =  decodeURIComponent(location.pathname).split("/");
   let pathnames = locationPathnames;
   const [breadCrumbItemLabels, setBreadCrumbItemLabels] = useState<string[]>([]);
 
@@ -57,7 +57,8 @@ export default function CustomBreadCrumb() {
   };
 
   const breadcrumbEndpointTemplate = (path: string, isLink: boolean) => {
-    let lastEndpointInPath = path.replace("%20", " ").split("/").pop();
+    let lastEndpointInPath = path.split("/").pop();
+    // let lastEndpointInPath = path.replace("%20", " ").split("/").pop();
     let breadcrumbLabel =lastEndpointInPath?.charAt(0).toUpperCase() + "" + lastEndpointInPath?.slice(1);
 
     const endpointContent = browsedCountry?.names?.common !== lastEndpointInPath

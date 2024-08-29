@@ -1,6 +1,6 @@
 {
     "appTitle": "WorldCountries",
-    "greeting": "Welcome to {{appTitle}} 🌍 ...",
+    "greeting": "Welcome to {{appTitle}} ...",
     "error": {
       "notFound": "Page not found",
       "server": "Ooopss... Our bad. Something went wrong in the server"

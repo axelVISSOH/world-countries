@@ -18,7 +18,7 @@ export default function CountryCarousel() {
   
   const displayCarousel = (direction: string, countries: ICountry[]) => {
     return (
-      <div className="carousel overflow-hidden whitespace-nowrap relative">
+      <div className="carousel overflow-hidden whitespace-nowrap relative my-5">
         {duplicateCarouselLine(direction, countries)}
       </div>
     );
@@ -27,7 +27,7 @@ export default function CountryCarousel() {
   const duplicateCarouselLine = (direction: string, countries: ICountry[]) => {
     const region = countries[0].continentAndRegion?.regions?.region;
     return (
-      <div id={`scroll-${direction}-${region}`} className={`slider flex my-10`}>
+      <div id={`scroll-${direction}-${region}`} className={`slider flex`}>
         <style>
           {`
               .carousel:hover #scroll-${direction}-${region}{

@@ -513,7 +513,6 @@ export default function CountryDataTable() {
           tableClassName=""
           className={`theme-${theme} m-10`}
           value={countries}
-          alt="ALT TEST"
           showGridlines
           resizableColumns
           stripedRows

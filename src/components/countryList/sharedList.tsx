@@ -1,5 +1,5 @@
 import { t } from "i18next";
-import React, { CSSProperties, ReactNode, useContext, useRef } from "react";
+import React, { useContext, useRef } from "react";
 import { Button } from "primereact/button";
 import { InputText } from "primereact/inputtext";
 
@@ -36,7 +36,7 @@ export const RenderHeader: React.FC<IRenderHeaderProps> = ({clearFilter, headerF
 
   return (
     <div className="m-4 flex justify-between">
-      <div className="left flex">
+      <div className="left flex items-center">
         <Button
           className=""
           type="button"
