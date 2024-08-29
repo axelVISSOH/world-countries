@@ -70,7 +70,7 @@ export default function CountryComponent({ country }: ICountryCardProps) {
         <SplitterPanel size={65} minSize={65}>
           <div className="flex flex-col w-full p-10 self-center">
             <div className="text-center text-3xl hover:cursor-pointer" onClick={()=> setModalOpen(true)}>
-              <h2> {country.names?.common} </h2>
+              <h2  className='animate-jump text-2xl'> {country.names?.common} </h2>
             </div>
             <CountryModalButton country={country} open={modalOpen} onClose={()=> setModalOpen(false)} />
             <div className="m-6 justify-around self-center">
