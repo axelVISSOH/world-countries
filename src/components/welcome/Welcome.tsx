@@ -63,20 +63,22 @@ export default function Welcome() {
     <div className={`p-10 h-screen flex flex-col justify-center items-center ${theme.colors.text}`}
       style={{ backgroundColor: theme.colors.background }} >
 
-      <ReactTyped className="inline-block whitespace-nowrap text-4xl sm:text-xl xs:text-l font-serif font-bold"
-                  strings={[t("greeting", { appTitle: t("appTitle") }) + '🌍', ]}
-                  style={{ 
-                    'fontSize': fontSize , 'lineHeight': '1'
-                  }}
-                  typeSpeed={40}
-                  backSpeed={50}
-                  loop />
+      <div className="flex justify-center gap-y-4" style={{ 'fontSize': fontSize , 'lineHeight': '1' }}>
+        <ReactTyped className="inline-block whitespace-nowrap text-4xl sm:text-xl xs:text-l font-serif font-bold"
+                    strings={[t("greeting", { appTitle: t("appTitle") })]}
+                    style={{ 'fontSize': fontSize , 'lineHeight': '1' }}
+                    typeSpeed={40}
+                    backSpeed={50}
+                    loop />
+        <span>🌍</span>
+      </div>
+      
 
       <Globe
         //@ts-ignore
         ref={globeRef}          
         width={window.innerWidth}
-        height={window.innerHeight * 0.5}
+        height={window.innerHeight * 0.4}
         backgroundColor={"rgba(0,0,0,0)"}
         globeImageUrl={logo}/>
 

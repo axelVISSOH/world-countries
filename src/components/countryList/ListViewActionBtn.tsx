@@ -15,16 +15,14 @@ type SpeedDialDirection =
   | "down-right"
   | undefined;
 
-interface ListViewActionBtn {
+interface IListViewActionBtn {
   items: MenuItem[];
-  direction?: SpeedDialDirection;
+  direction?: SpeedDialDirection ;
 }
 
 export default function ListViewActionBtn({
   items,
-  //@ts-ignore
-  direction = "down",
-}: ListViewActionBtn) {
+}: IListViewActionBtn) {
   const itemRef = useRef<TieredMenu | null>(null);
   return (
     <React.Fragment>

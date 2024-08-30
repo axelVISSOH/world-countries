@@ -21,7 +21,7 @@
     "homewelcome.span": "Welcome to {{appTitle}}",
 
     "tableView.noData": "No coresponding country",
-    "tableView.header.globalFilter": "Search everywhere",
+    "tableView.header.globalFilter": "Search by name or code",
     "tableView.header.names": "Names",
     "tableView.header.flagsInfo": "Flag",
     "tableView.header.capital": "Capital",

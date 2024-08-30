@@ -21,14 +21,24 @@ export interface IFiltersRegister{
 
 const filterCountriesByField = (
   countries: ICountry[],
-  _field: string,
   filter: string,
 ) => {
-  return countries.filter((country) =>
-    (country.names?.common as string)
-      .toLowerCase()
-      .startsWith(filter.toLowerCase()),
-  );
+
+  let letFilteredCountries = countries.slice().filter((country) => {
+    const nameMatch = (country.names?.common as string)
+                        .toLowerCase()
+                        .startsWith(filter.toLowerCase());
+
+    if (nameMatch) { return true; }
+
+    const codeMatch = (country.codes?.cca3 as string)
+                        .toLowerCase()
+                        .startsWith(filter.toLowerCase());
+
+    return codeMatch;
+  });
+  
+  return letFilteredCountries.length !== 0 ? letFilteredCountries : countries.slice();
 };
 
 export default function CountryDataView() {
@@ -107,7 +117,6 @@ export default function CountryDataView() {
     
     let _filteredCoutries = filterCountriesByField(
       currentFilteredCoutries,
-      "names.common",
       filterValueToApplyGlobally,
     );
 

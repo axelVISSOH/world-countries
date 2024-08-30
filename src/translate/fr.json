@@ -21,7 +21,7 @@
     "homewelcome.span": "Bienvenue sur {{appTitle}}",
 
     "tableView.noData": "Aucun pays correspondant",
-    "tableView.header.globalFilter": "Recherche global",
+    "tableView.header.globalFilter": "Recherche par nom ou code",
     "tableView.header.names": "Noms",
     "tableView.header.flagsInfo": "Drapeau",
     "tableView.header.capital": "Capitale",

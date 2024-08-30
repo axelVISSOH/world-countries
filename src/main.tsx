@@ -42,6 +42,7 @@ const value: Partial<APIOptions> = {
       ],
     },
     inputStyle: "filled",
+    hideOverlaysOnDocumentScrolling: true,
     ripple: true,
     pt: {},
   };

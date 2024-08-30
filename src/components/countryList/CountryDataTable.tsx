@@ -101,11 +101,9 @@ export default function CountryDataTable() {
 
   
   const { t } = useTranslation();
-  //@ts-ignore
-  const { theme } = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);  
   
-  //@ts-ignore  
-  const { countries, persistBrowsedCountry } = useContext(CountryContext);
+  const { countries } = useContext(CountryContext);
 
   const languages = Array.from(
     new Set(countries.flatMap((country) => country.languages).map((lang) => lang?.key)),
@@ -277,8 +275,6 @@ export default function CountryDataTable() {
       index: number,
       setSelectedFunction: React.Dispatch<React.SetStateAction<string[]>>,
       selectedFilterOptions: string[],
-      //@ts-ignore
-      option: any,
     ) => {
       const key = filterType + "_" + index;
       return (
@@ -291,7 +287,6 @@ export default function CountryDataTable() {
               onFilterOptionChange(
                 filterType,
                 setSelectedFunction,
-                selectedFilterOptions,
                 e,
               )
             }
@@ -310,9 +305,7 @@ export default function CountryDataTable() {
 
     const onFilterOptionChange = (
       filterType: filtertype,
-      setSelectedFunction: React.Dispatch<React.SetStateAction<string[]>>,
-      //@ts-ignore
-      selectedFilterOptions: string[],
+      setSelectedFunction: React.Dispatch<React.SetStateAction<string[]>>,      
       event: CheckboxChangeEvent,
     ) => {
       setSelectedFunction((prevSelectedOptions) => {
@@ -392,7 +385,6 @@ export default function CountryDataTable() {
               index,
               setSelectedContinentsFilter,
               selectedContinentsFilter,
-              options,
             );
           })}
         </div>
@@ -406,7 +398,6 @@ export default function CountryDataTable() {
               index,
               setSelectedRegionsFilter,
               selectedRegionsFilter,
-              options,
             );
           })}
         </div>
@@ -421,7 +412,6 @@ export default function CountryDataTable() {
                 index,
                 setSelectedSubRegionsFilter,
                 selectedSubRegionsFilter,
-                options,
               );
             })}
           </div>

@@ -9,8 +9,8 @@ import CountryModalButton from "../../country/CountryModalButton";
 
 //@ts-ignore
 export default function ActionsBodyTemplate( {country, viewType} : IFieldBodyTemplate) {
-  //@ts-ignore
-  const { countries, persistBrowsedCountry } = useContext(CountryContext);
+
+  const { persistBrowsedCountry } = useContext(CountryContext);
   const navigate = useNavigate();
   
   const [modalOpen, setModalOpen] = useState(false);

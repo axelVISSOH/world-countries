@@ -12,7 +12,7 @@ export function displaylangs (country: ICountry, viewType: viewtype) {
 
   const displaylang = (lang: Languages, key: number=0) =>{
     return (
-      <li key={lang.key + key}>
+      <li className="m-2" key={lang.key + key}>
         <strong>{lang.key.toUpperCase()} </strong>
         <span>{lang.name}</span>
       </li>
@@ -24,7 +24,7 @@ export function displaylangs (country: ICountry, viewType: viewtype) {
       {
         langs && langs.length>0 ?
           (
-            <div className={`flex  ${viewType === "list" || viewType === "detail" ? "flex-col" : "justify-center"}  `} >
+            <div className={`flex  mb-4 ${viewType === "list" || viewType === "detail" ? "flex-col" : "justify-center"} `} >
             
               {    
                 langs.length==1 ? 
@@ -71,9 +71,9 @@ export default function LanguagesBodyTemplate({country, viewType = "table",}: IF
           <img className="mr-2 w-32" src={languageLogo} alt="" />
         </span>
       )}
-      <div className={`flex  ${viewType === "list" || viewType === "detail" ? "flex-col" : "justify-center"}  `}>
+      <div className={`flex ${viewType === "list" || viewType === "detail" ? "flex-col" : "justify-center"}  `}>
         {(viewType === "list" || viewType === "detail") && (
-          <span>{t("tableView.header.languages")}</span>
+          <span className="mb-2">{t("tableView.header.languages")}</span>
         )}
         <ul className="list-none">
           {

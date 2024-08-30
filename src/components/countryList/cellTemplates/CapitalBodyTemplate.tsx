@@ -18,7 +18,7 @@ export default function CapitalBodyTemplate({
         {(viewType === "list" || viewType === "detail") && (
           <span>{t("tableView.header.capital")}</span>
         )}
-        <strong> {(country?.capital?.name || t('countryInfo.notAvailable')).toUpperCase()} </strong>
+        <strong> {(country?.capital?.name || t('countryInfo.na')).toUpperCase()} </strong>
       </div>
     </div>
   );
