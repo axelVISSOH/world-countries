@@ -2,7 +2,11 @@
 
 WorldCountries is a learning project aimed at gaining hands-on experience with modern web development technologies like React, TypeScript, Vite, PrimeReact, and TailwindCSS. This application fetches data from the [REST Countries API](https://restcountries.com/) and displays it in a user-friendly and responsive interface, offering a practical way to explore and practice these technologies.
 
+<div align="center">
+  <img src="/public/gif/welcome.gif">
+</div>
 ![WorldCountries Demo](/public/gif/welcome.gif)
+<!-- ![WorldCountries Demo]( <div align="center"><img src="/public/gif/welcome.gif"></div>) -->
 
 ## ✨ Features
 
